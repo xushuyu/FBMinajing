@@ -205,17 +205,18 @@ public:
     }
     
 };
-
-class MazeExit{
-public:
-    vector<vector<int>> dirs = {{0,-1},{1,0},{0,1},{-1,0}};
-    bool moveForward();
-    void turnRight();
-    bool findExit();
-    
-    bool dfs(vector<int> cur, set<vector<int>>& visited, vector<int> exit,int d);
-};
+//
+//class MazeExit{
+//public:
+//    vector<vector<int>> dirs = {{0,-1},{1,0},{0,1},{-1,0}};
+//    bool moveForward();
+//    void turnRight();
+//    bool findExit();
+//    
+//    bool dfs(vector<int> cur, set<vector<int>>& visited, vector<int> exit,int d);
+//};
 
 class Evalueation{
-    
+public:
+    int evaluate(string str);
 };

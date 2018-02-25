@@ -1008,41 +1008,92 @@ int LongestSubstringKDistinct::lengthOfLongestSubstringKDistinct(char str[],int 
     
     return 1;
 }
+//
+//bool MazeExit::findExit(){
+////    set<vector<int>> visited;
+////    vector<int> exit;
+////
+////    return dfs({0,0},visited,exit,0);
+//    return false;
+//}
+//
+////    vector<vector<int>> dirs = {{0,-1},{1,0},{0,1},{-1,0}};  all for directions 0=up, 1=right 2=down, 3=left
+//bool MazeExit::dfs(vector<int> cur, set<vector<int>>& visited, vector<int> exit,int d/*idx for directions*/){
+//    if(cur == exit)
+//        return true;
+//    
+//    for(int i = 0; i < 4; ++i){
+//        turnRight();
+//        d = d+1 > 3 ? 0 : d+1;
+//        
+//        if(moveForward()){
+//            vector<int> newPos = {cur[0]+dirs[d][0],cur[1]+dirs[d][1]};
+//            if(visited.count(newPos) <= 0){
+//                visited.insert(newPos);
+//                dfs(newPos,visited,exit,d);
+//            }
+//            
+//            //set to previous state
+//            turnRight();
+//            turnRight();
+//            moveForward();
+//            turnRight();
+//            turnRight();
+//        }
+//    }
+//    
+//    return false;
+//}
 
-bool MazeExit::findExit(){
-    set<vector<int>> visited;
-    vector<int> exit;
+int Evalueation::evaluate(string str){
+    int res = 0;
+    if(str.empty()) return res;
     
-    return dfs({0,0},visited,exit,0);
-}
-
-//    vector<vector<int>> dirs = {{0,-1},{1,0},{0,1},{-1,0}};  all for directions 0=up, 1=right 2=down, 3=left
-bool MazeExit::dfs(vector<int> cur, set<vector<int>>& visited, vector<int> exit,int d/*idx for directions*/){
-    if(cur == exit)
-        return true;
+    stringstream ss(str);
+    string cur;
     
-    for(int i = 0; i < 4; ++i){
-        turnRight();
-        d = d+1 > 3 ? 0 : d+1;
-        
-        if(moveForward()){
-            vector<int> newPos = {cur[0]+dirs[d][0],cur[1]+dirs[d][1]};
-            if(visited.count(newPos) <= 0){
-                visited.insert(newPos);
-                dfs(newPos,visited,exit,d);
+    stack<string> next;
+//    (- (+ 2 4) (+ 5 5)) 返回 -4
+//    (+ 1 2 3) 返回 6
+//    (+ 1 2 4 (+ (+ (- 1 3) 3) 4 (+ 5 4 5 6)) 返回。
+    
+    while(getline(ss,cur,' ')){
+        if(!(!isdigit(cur[0]) && cur.size() == 1)){ // num
+            next.push(cur);
+        }else{ // + - ( )
+            if(cur[0] == ')' ){
+                vector<string> nums;
+                
+                while( !next.empty() && next.top()[0] != '('){
+                    nums.push_back(next.top());
+                    next.pop();
+                }
+                
+                next.pop();
+                
+                int sign = nums.back()[0] == '+' ? 1 : -1;
+                nums.pop_back();
+                
+                int sum = stoi(nums.back());
+                
+                for(int i = 0; i < nums.size()-1; ++i)
+                    sum += sign*stoi(nums[i]);
+                
+                next.push(to_string(sum));
+            }else{
+                next.push(cur);
             }
-            
-            //set to previous state
-            turnRight();
-            turnRight();
-            moveForward();
-            turnRight();
-            turnRight();
         }
     }
     
-    return false;
+    if(!next.empty()){
+        string tmp = next.top();
+        return stoi(tmp);
+    }
+    else
+        return INT_MAX;
 }
+
 
 
 

@@ -76,19 +76,27 @@ ForwardIterator my_upper_bound (ForwardIterator first,
     return first;
 }
 
-int main(int argc, const char * argv[]) {
+int maxless(vector<int> nums, int target){
+    int l = 0, r = (int)nums.size()-1;
+    
+    while(l < r){
+        int mid = (l+r+1)/2;
+        
+        if(nums[mid] < target)
+            l = mid;
+        else
+            r = mid - 1;
+    }
+    
+    return l;
+}
 
-    AbletoBuildTree *obj = new AbletoBuildTree();
-    //obj->test();
+
+
+int main(int argc, const char * argv[]) {
+    Evalueation * sol = new Evalueation();
+    cout<<sol->evaluate("( + 1 2 3 )")<<endl;
     
-    vector<int> nums = {3,3,3,4,6,6,6,7,8,8};
-    int target = 5;
-    auto res = my_lower_bound<vector<int>::iterator,int>(nums.begin(),nums.end(),target);
-    
-    
-    auto res2 = std::lower_bound(nums.begin(), nums.end(),target);
-    
-    cout<<*res<<endl<<*res2<<endl;
     return 0;
 }
 
