@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4EA5E497202689FC00C5F510 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EA5E496202689FC00C5F510 /* main.cpp */; };
+		4EA5E4A020268A5200C5F510 /* fb.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4EA5E49E20268A5200C5F510 /* fb.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,9 @@
 /* Begin PBXFileReference section */
 		4EA5E493202689FC00C5F510 /* FBMinajing */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = FBMinajing; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EA5E496202689FC00C5F510 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		4EA5E49D20268A1000C5F510 /* fb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fb.h; sourceTree = "<group>"; };
+		4EA5E49E20268A5200C5F510 /* fb.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fb.cpp; sourceTree = "<group>"; };
+		4EA5E49F20268A5200C5F510 /* fb.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = fb.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,9 @@
 			isa = PBXGroup;
 			children = (
 				4EA5E496202689FC00C5F510 /* main.cpp */,
+				4EA5E49D20268A1000C5F510 /* fb.h */,
+				4EA5E49E20268A5200C5F510 /* fb.cpp */,
+				4EA5E49F20268A5200C5F510 /* fb.hpp */,
 			);
 			path = FBMinajing;
 			sourceTree = "<group>";
@@ -120,6 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EA5E497202689FC00C5F510 /* main.cpp in Sources */,
+				4EA5E4A020268A5200C5F510 /* fb.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
